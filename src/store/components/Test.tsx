@@ -10,7 +10,7 @@ interface ITestProps {
 
 const Test: React.FunctionComponent<ITestProps> = (props) => {
 
-  const [isAnswerHidden, setIsHidden] = React.useState<boolean>(false)
+  const [isAnswerHidden, setIsHidden] = React.useState<boolean>(true)
 
   const [page, setPage] = React.useState<number>(Number(localStorage.getItem('test-page')) || 1)
 

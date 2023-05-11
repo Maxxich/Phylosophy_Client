@@ -7,22 +7,12 @@ interface IKeyInputProps {
 
 const KeyInput: React.FunctionComponent<IKeyInputProps> = (props) => {
 
-  const [value, setValue] = React.useState<string>('')
+  const [value, setValue] = React.useState<string>(localStorage.getItem('key') || '')
   const handleChange = (event: any) => setValue(event.target.value)
 
   React.useEffect(() => {
-    if (!value) return
     localStorage.setItem('key', value)
   }, [value])
-
-  React.useEffect(() => {
-    if (!value) {
-      const key = localStorage.getItem('key')
-      if (key) {
-        setValue(key)
-      }
-    }
-  }, [])
 
 
   return (

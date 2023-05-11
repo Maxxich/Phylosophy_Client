@@ -19,12 +19,18 @@ const Question: React.FunctionComponent<IQuestionProps> = ({
 
   const { isOpen, onOpen, onClose } = useDisclosure()
 
+  const onClick = () => {
+    const key = localStorage.getItem('key')
+    if (!key) return alert('Отсутствует ключ доступа')
+    onOpen()
+  }
+
   return (
     <>
       <Card marginBottom={10} border={'1px'}>
         <CardHeader paddingBottom={0} display={'flex'}>
           <Heading size='md'>{id}. {question}</Heading>
-          <IconButton aria-label='Edit question' icon={<EditIcon />} onClick={onOpen}/>
+          <IconButton aria-label='Edit question' icon={<EditIcon />} onClick={onClick}/>
         </CardHeader>
         <CardFooter paddingTop={0}>
           <Text pt='2' fontSize='md' color={correct ? 'green.500' : 'red.600'}>
