@@ -32,9 +32,12 @@ const Question: React.FunctionComponent<IQuestionProps> = ({
           <Heading size='md'>{id}. {question}</Heading>
           <IconButton aria-label='Edit question' icon={<EditIcon />} onClick={onClick}/>
         </CardHeader>
-        <CardFooter paddingTop={0}>
+        <CardFooter paddingTop={0} display={'flex'} flexDir={'column'}>
           <Text pt='2' fontSize='md' color={correct ? 'green.500' : 'red.600'}>
             {correct || 'Нет ответа'}
+          </Text>
+          <Text pt='2' fontSize='md' color={'gray.500'}>
+            {variants || 'Нет вариантов'}
           </Text>
         </CardFooter>
       </Card>
