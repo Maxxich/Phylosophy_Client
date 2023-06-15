@@ -9,6 +9,8 @@ interface IQuestionModalProps {
   variants: string | null | undefined, 
   id: number,
   correct: string | null | undefined, 
+  charter: number,
+  order: number
 }
 
 const QuestionEditModal: React.FunctionComponent<IQuestionModalProps> = ({
@@ -17,7 +19,9 @@ const QuestionEditModal: React.FunctionComponent<IQuestionModalProps> = ({
   correct,
   id,
   question,
-  variants
+  variants,
+  charter,
+  order
 }) => {
 
 
@@ -40,7 +44,9 @@ const QuestionEditModal: React.FunctionComponent<IQuestionModalProps> = ({
            correct: valueCorrect,
            id,
            question: valueQuestion,
-           variants: valueVariants
+           variants: valueVariants,
+           charter,
+           order,
         }
       }).unwrap()
     } catch (e: any) {
@@ -60,6 +66,8 @@ const QuestionEditModal: React.FunctionComponent<IQuestionModalProps> = ({
         <ModalCloseButton />
         <ModalBody>
           <Text mb='8px'>Id {id}</Text>
+          <Text mb='8px'>Глава {charter}</Text>
+          <Text mb='8px'>№ {order}</Text>
           <Divider margin={'5px 0'}/>
           <Text mb='8px'>Вопрос</Text>
           <Textarea

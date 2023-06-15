@@ -8,6 +8,8 @@ interface ITestQuestionProps {
   id: number,
   correct: string | null | undefined
   isAnswerHidden: boolean
+  charter: number,
+  order: number
 }
 
 const TestQuestion: React.FunctionComponent<ITestQuestionProps> = ({
@@ -15,7 +17,9 @@ const TestQuestion: React.FunctionComponent<ITestQuestionProps> = ({
   id,
   question,
   variants,
-  isAnswerHidden
+  isAnswerHidden,
+  charter,
+  order
 }) => {
 
 
@@ -23,7 +27,7 @@ const TestQuestion: React.FunctionComponent<ITestQuestionProps> = ({
   return (
     <Card marginBottom={10} border={'1px'} minHeight={'40vh'}>
       <CardHeader paddingBottom={0} display={'flex'}>
-        <Heading size='md'>{id}. {question}</Heading>
+        <Heading size='md'>{id}. Глава {charter}. №{order}. {question}</Heading>
       </CardHeader>
 
       <CardBody paddingTop={0} paddingBottom={0}>

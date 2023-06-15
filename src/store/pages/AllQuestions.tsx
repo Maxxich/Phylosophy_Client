@@ -63,6 +63,8 @@ const AllQuestions: React.FunctionComponent<IAllQuestionsProps> = (props) => {
         question={q.question}
         variants={q.variants}
         key={q.id}
+        charter={q.charter}
+        order={q.order}
       />)}
       {isFetching && <div style={{width: '100%', display: 'flex', justifyContent: 'center', padding: '50px 0'}}>
         <Spinner/>

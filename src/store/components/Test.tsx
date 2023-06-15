@@ -36,6 +36,8 @@ const Test: React.FunctionComponent<ITestProps> = (props) => {
         id={q.id}
         question={q.question}
         variants={q.variants}
+        charter={q.charter}
+        order={q.order}
       />)}
       {isFetching && <div style={{width: '100%', display: 'flex', justifyContent: 'center', padding: '50px 0'}}>
         <Spinner/>

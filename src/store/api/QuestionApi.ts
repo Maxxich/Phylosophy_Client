@@ -12,6 +12,8 @@ interface IQuestion{
   variants: string | null | undefined
   correct: string | null | undefined
   id: number
+  charter: number
+  order: number
 }
 
 interface UpdateQuestionDto{
@@ -29,6 +31,8 @@ interface IQuestionNoId{
   question: string
   variants: string | null
   correct: string
+  charter: number
+  order: number
 }
 
 interface CreateQuestionDto{

@@ -8,13 +8,17 @@ interface IQuestionProps {
   variants: string | null | undefined, 
   id: number,
   correct: string | null | undefined,
+  charter: number,
+  order: number
 }
 
 const Question: React.FunctionComponent<IQuestionProps> = ({
   correct,
   id,
   question,
-  variants
+  variants,
+  charter,
+  order
 }) => {
 
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -29,7 +33,7 @@ const Question: React.FunctionComponent<IQuestionProps> = ({
     <>
       <Card marginBottom={10} border={'1px'}>
         <CardHeader paddingBottom={0} display={'flex'}>
-          <Heading size='md'>{id}. {question}</Heading>
+          <Heading size='md'>{id}. Глава {charter}. №{order}. {question}</Heading>
           <IconButton aria-label='Edit question' icon={<EditIcon />} onClick={onClick}/>
         </CardHeader>
         <CardFooter paddingTop={0} display={'flex'} flexDir={'column'}>
@@ -48,6 +52,8 @@ const Question: React.FunctionComponent<IQuestionProps> = ({
         onClose={onClose}
         question={question}
         variants={variants}
+        charter={charter}
+        order={order}
       />}
     </>
   );
